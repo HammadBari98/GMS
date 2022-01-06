@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Gym_Management_SystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin1">
+    <Key>
+      <PropertyRef Name="a_id" />
+    </Key>
+    <Property Name="a_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="a_name" Type="varchar" MaxLength="25" />
+    <Property Name="a_password" Type="int" />
+  </EntityType>
+  <EntityType Name="chart">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="chart_name" Type="varchar" MaxLength="50" />
+    <Property Name="chart_description" Type="varchar(max)" />
+    <Property Name="chart_weight" Type="int" />
+    <Property Name="t_id" Type="int" />
+  </EntityType>
+  <EntityType Name="equipments">
+    <Key>
+      <PropertyRef Name="eq_id" />
+    </Key>
+    <Property Name="eq_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="eq_name" Type="varchar" MaxLength="50" />
+    <Property Name="eq_tra_id" Type="int" />
+  </EntityType>
+  <EntityType Name="student_trainer">
+    <Key>
+      <PropertyRef Name="s_tr_id" />
+    </Key>
+    <Property Name="s_tr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="t_id" Type="int" />
+    <Property Name="trainer_id" Type="int" />
+  </EntityType>
+  <EntityType Name="trainee">
+    <Key>
+      <PropertyRef Name="trainee_id" />
+    </Key>
+    <Property Name="trainee_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trainee_name" Type="varchar" MaxLength="25" />
+    <Property Name="trainee_contact" Type="varchar" MaxLength="25" />
+    <Property Name="trainee_password" Type="int" />
+  </EntityType>
+  <EntityType Name="trainee_details">
+    <Key>
+      <PropertyRef Name="d_id" />
+    </Key>
+    <Property Name="d_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="waist" Type="float" />
+    <Property Name="thighs" Type="float" />
+    <Property Name="arms" Type="float" />
+    <Property Name="chest" Type="float" />
+    <Property Name="height" Type="float" />
+    <Property Name="weight" Type="int" />
+    <Property Name="Age" Type="int" />
+    <Property Name="trainee_id" Type="int" />
+  </EntityType>
+  <EntityType Name="trainer">
+    <Key>
+      <PropertyRef Name="trainer_id" />
+    </Key>
+    <Property Name="trainer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trainer_name" Type="varchar" MaxLength="25" />
+    <Property Name="trainer_speciality" Type="varchar" MaxLength="30" />
+    <Property Name="trainer_salary" Type="int" />
+  </EntityType>
+  <Association Name="FK__chart__t_id__35BCFE0A">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="0..1" />
+    <End Role="chart" Type="Self.chart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="chart">
+        <PropertyRef Name="t_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__equipment__eq_tr__276EDEB3">
+    <End Role="trainer" Type="Self.trainer" Multiplicity="0..1" />
+    <End Role="equipments" Type="Self.equipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainer">
+        <PropertyRef Name="trainer_id" />
+      </Principal>
+      <Dependent Role="equipments">
+        <PropertyRef Name="eq_tra_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student_t__train__32E0915F">
+    <End Role="trainer" Type="Self.trainer" Multiplicity="0..1" />
+    <End Role="student_trainer" Type="Self.student_trainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainer">
+        <PropertyRef Name="trainer_id" />
+      </Principal>
+      <Dependent Role="student_trainer">
+        <PropertyRef Name="trainer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student_tr__t_id__31EC6D26">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="0..1" />
+    <End Role="student_trainer" Type="Self.student_trainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="student_trainer">
+        <PropertyRef Name="t_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__trainee_d__train__2F10007B">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="0..1" />
+    <End Role="trainee_details" Type="Self.trainee_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="trainee_details">
+        <PropertyRef Name="trainee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Gym_Management_SystemModelStoreContainer">
+    <EntitySet Name="Admin1" EntityType="Self.Admin1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="chart" EntityType="Self.chart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="equipments" EntityType="Self.equipments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="student_trainer" EntityType="Self.student_trainer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trainee" EntityType="Self.trainee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trainee_details" EntityType="Self.trainee_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trainer" EntityType="Self.trainer" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__chart__t_id__35BCFE0A" Association="Self.FK__chart__t_id__35BCFE0A">
+      <End Role="trainee" EntitySet="trainee" />
+      <End Role="chart" EntitySet="chart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__equipment__eq_tr__276EDEB3" Association="Self.FK__equipment__eq_tr__276EDEB3">
+      <End Role="trainer" EntitySet="trainer" />
+      <End Role="equipments" EntitySet="equipments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student_t__train__32E0915F" Association="Self.FK__student_t__train__32E0915F">
+      <End Role="trainer" EntitySet="trainer" />
+      <End Role="student_trainer" EntitySet="student_trainer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student_tr__t_id__31EC6D26" Association="Self.FK__student_tr__t_id__31EC6D26">
+      <End Role="trainee" EntitySet="trainee" />
+      <End Role="student_trainer" EntitySet="student_trainer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__trainee_d__train__2F10007B" Association="Self.FK__trainee_d__train__2F10007B">
+      <End Role="trainee" EntitySet="trainee" />
+      <End Role="trainee_details" EntitySet="trainee_details" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

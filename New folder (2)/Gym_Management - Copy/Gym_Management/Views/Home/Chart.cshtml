@@ -1,0 +1,139 @@
+﻿@model Gym_Management.Models.chart
+
+@{
+    ViewBag.Title = "Chart";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+
+        <div class="col-md-2">
+            <div style=" background-color: #1f5f6f; height:100vh ">
+                <ul style="margin-top:0px;  text-decoration:none; list-style-type:none;text-align:left; padding:0px">
+                    <br />
+                    <li style="font-size:20px;color:white; margin:10px" class="active">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        @Html.ActionLink("DASHBOARD", "Welcome", "Home")
+                    </li>
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-life-ring" aria-hidden="true"></i>
+                        @Html.ActionLink("TRAINER", "Trainer", new { @class = "list-group-item" })
+                    </li>
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        @Html.ActionLink("TRAINEE", "TRAINEE", new { @class = "list-group-item" })
+                    </li>
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                        @Html.ActionLink("EQUIPMENTS", "EQUIPMENTS", new { @class = "list-group-item" })
+                    </li>
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-cutlery" aria-hidden="true"></i>
+                        @Html.ActionLink("CHART", "CHART", new { @class = "list-group-item" })
+                    </li>
+
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-building-o" aria-hidden="true"></i>
+                        @Html.ActionLink("BRANCH", "Gym_Branch_Index", new { @class = "list-group-item" })
+                    </li>
+
+
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        @Html.ActionLink("LOGOUT", "index", new { @class = "list-group-item" })
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10" style="margin-top:20px">
+            <div class="row">
+                <div class="col-md-5">
+
+                    <div class="container-fluid">
+                        <div class="form-horizontal" style="border: 1px solid white; color: black; background: rgba(256, 256, 256, 0.7); padding: 15px;">
+                            <h2>Add New Diet:</h2>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.chart_name, "Chart Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.chart_name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.chart_name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.chart_description, "Chart Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.chart_description, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.chart_description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.chart_weight, "Chart Weight", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.chart_weight, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.chart_weight, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.t_id, "Trainee ID", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.t_id, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.t_id, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Add" class="btn btn-primary" style="width:100%" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h2 style="color: black; border: 1px solid white; padding: 15px; background: rgba(256, 256, 256, 0.7);">
+                        Dieting Plans:
+                    </h2>
+                    <table class="table table-responsive" style="color: black; background: rgba(256, 256, 256, 0.7); border: 1px solid white; ">
+                        <thead>
+                            <tr>
+                                <th style="text-align:center">ID</th>
+                                <th style="text-align:center">Chart Name</th>
+                                <th style="text-align:center">Chart Description</th>
+                                <th style="text-align:center">Chart Weight</th>
+                                <th style="text-align:center">Chart For Trainee</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewData["list"] as List<Gym_Management.Models.chart>)
+                            {
+                                <tr>
+                                    <td style="text-align:center">@item.c_id</td>
+                                    <td style="text-align:center">@item.chart_name</td>
+                                    <td style="text-align:center">@item.chart_description</td>
+                                    <td style="text-align:center">@item.chart_weight</td>
+                                    <td style="text-align:center">@item.t_id</td>
+                                    <td style="text-align:center">
+                                        <a class="btn btn-primary btn-sm" href="@Url.Action("Chart_Edit",new {id=item.c_id })">
+                                            Edit Diet Plan
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+}

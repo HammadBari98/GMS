@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Gym_Management_SystemModel1StoreContainer" CdmEntityContainer="Gym_Management_SystemEntities10">
+    <EntitySetMapping Name="Admin1">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.Admin1">
+        <MappingFragment StoreEntitySet="Admin1">
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="a_name" ColumnName="a_name" />
+          <ScalarProperty Name="a_password" ColumnName="a_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="charts">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.chart">
+        <MappingFragment StoreEntitySet="chart">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="chart_name" ColumnName="chart_name" />
+          <ScalarProperty Name="chart_description" ColumnName="chart_description" />
+          <ScalarProperty Name="chart_weight" ColumnName="chart_weight" />
+          <ScalarProperty Name="t_id" ColumnName="t_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="equipments">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.equipment">
+        <MappingFragment StoreEntitySet="equipments">
+          <ScalarProperty Name="eq_id" ColumnName="eq_id" />
+          <ScalarProperty Name="eq_name" ColumnName="eq_name" />
+          <ScalarProperty Name="eq_tra_id" ColumnName="eq_tra_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gym_Branch">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.Gym_Branch">
+        <MappingFragment StoreEntitySet="Gym_Branch">
+          <ScalarProperty Name="GB_id" ColumnName="GB_id" />
+          <ScalarProperty Name="trainee_id" ColumnName="trainee_id" />
+          <ScalarProperty Name="B_id" ColumnName="B_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gym_Branch_1">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.Gym_Branch_1">
+        <MappingFragment StoreEntitySet="Gym_Branch_1">
+          <ScalarProperty Name="B_id" ColumnName="B_id" />
+          <ScalarProperty Name="B_Name" ColumnName="B_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gym_Equipment_type">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.Gym_Equipment_type">
+        <MappingFragment StoreEntitySet="Gym_Equipment_type">
+          <ScalarProperty Name="GEt_id" ColumnName="GEt_id" />
+          <ScalarProperty Name="trainee_id" ColumnName="trainee_id" />
+          <ScalarProperty Name="Et_id" ColumnName="Et_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gym_Equipment_type_1">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.Gym_Equipment_type_1">
+        <MappingFragment StoreEntitySet="Gym_Equipment_type_1">
+          <ScalarProperty Name="Et_id" ColumnName="Et_id" />
+          <ScalarProperty Name="Eq_type" ColumnName="Eq_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Memberships">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.Membership">
+        <MappingFragment StoreEntitySet="Membership">
+          <ScalarProperty Name="M_id" ColumnName="M_id" />
+          <ScalarProperty Name="M_Package" ColumnName="M_Package" />
+          <ScalarProperty Name="M_Fee" ColumnName="M_Fee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Membership_History">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.Membership_History">
+        <MappingFragment StoreEntitySet="Membership_History">
+          <ScalarProperty Name="Mh_id" ColumnName="Mh_id" />
+          <ScalarProperty Name="trainee_id" ColumnName="trainee_id" />
+          <ScalarProperty Name="M_id" ColumnName="M_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="physcial_details">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.physcial_details">
+        <MappingFragment StoreEntitySet="physcial_details">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="T_Hieght" ColumnName="T_Hieght" />
+          <ScalarProperty Name="T_Weight" ColumnName="T_Weight" />
+          <ScalarProperty Name="T_Age" ColumnName="T_Age" />
+          <ScalarProperty Name="traine_id" ColumnName="traine_id" />
+          <ScalarProperty Name="tt_id" ColumnName="tt_id" />
+          <ScalarProperty Name="Mh_id" ColumnName="Mh_id" />
+          <ScalarProperty Name="GB_id" ColumnName="GB_id" />
+          <ScalarProperty Name="GEt_id" ColumnName="GEt_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student_trainer">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.student_trainer">
+        <MappingFragment StoreEntitySet="student_trainer">
+          <ScalarProperty Name="t_e_id" ColumnName="t_e_id" />
+          <ScalarProperty Name="s_tr_id" ColumnName="s_tr_id" />
+          <ScalarProperty Name="t_id" ColumnName="t_id" />
+          <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Timetables">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.Timetable">
+        <MappingFragment StoreEntitySet="Timetable">
+          <ScalarProperty Name="tt_id" ColumnName="tt_id" />
+          <ScalarProperty Name="tt_Slot" ColumnName="tt_Slot" />
+          <ScalarProperty Name="traine_id" ColumnName="traine_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trainees">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.trainee">
+        <MappingFragment StoreEntitySet="trainee">
+          <ScalarProperty Name="trainee_id" ColumnName="trainee_id" />
+          <ScalarProperty Name="trainee_name" ColumnName="trainee_name" />
+          <ScalarProperty Name="trainee_contact" ColumnName="trainee_contact" />
+          <ScalarProperty Name="trainee_password" ColumnName="trainee_password" />
+          <ScalarProperty Name="trainee_Gender" ColumnName="trainee_Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trainee_details">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.trainee_details">
+        <MappingFragment StoreEntitySet="trainee_details">
+          <ScalarProperty Name="d_id" ColumnName="d_id" />
+          <ScalarProperty Name="waist" ColumnName="waist" />
+          <ScalarProperty Name="thighs" ColumnName="thighs" />
+          <ScalarProperty Name="arms" ColumnName="arms" />
+          <ScalarProperty Name="chest" ColumnName="chest" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="trainee_id" ColumnName="trainee_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trainers">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.trainer">
+        <MappingFragment StoreEntitySet="trainer">
+          <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
+          <ScalarProperty Name="trainer_name" ColumnName="trainer_name" />
+          <ScalarProperty Name="trainer_speciality" ColumnName="trainer_speciality" />
+          <ScalarProperty Name="trainer_salary" ColumnName="trainer_salary" />
+          <ScalarProperty Name="for_weight" ColumnName="for_weight" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="trainer_password" ColumnName="trainer_password" />
+          <ScalarProperty Name="trainee_id" ColumnName="trainee_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="type_of_equipment">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.type_of_equipment">
+        <MappingFragment StoreEntitySet="type_of_equipment">
+          <ScalarProperty Name="Eq_description" ColumnName="Eq_description" />
+          <ScalarProperty Name="Eq_type" ColumnName="Eq_type" />
+          <ScalarProperty Name="t_e_id" ColumnName="t_e_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="type_of_equipment1">
+      <EntityTypeMapping TypeName="Gym_Management_SystemModel1.type_of_equipment1">
+        <MappingFragment StoreEntitySet="type_of_equipment1">
+          <ScalarProperty Name="t_e_id" ColumnName="t_e_id" />
+          <ScalarProperty Name="trainee_id" ColumnName="trainee_id" />
+          <ScalarProperty Name="to_eq_id" ColumnName="to_eq_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

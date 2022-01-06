@@ -1,0 +1,596 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D477E166-27C7-47A8-9C7D-50F0A76E500B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gym_Management</RootNamespace>
+    <AssemblyName>Gym_Management</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44305</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MoralesLarios.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MoralesLarios.Data.1.0.0.2\lib\net452\MoralesLarios.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MoralesLarios.Data.EntityFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MoralesLarios.Data.EntitiyFramework.1.0.0.3\lib\net452\MoralesLarios.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\image\HOME_BG.jpg" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\GymModel1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GymModel1.edmx</DependentUpon>
+      <LastGenOutput>GymModel1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\GymModel1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GymModel1.edmx</DependentUpon>
+      <LastGenOutput>GymModel1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model10.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model10.edmx</DependentUpon>
+      <LastGenOutput>Model10.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model10.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model10.edmx</DependentUpon>
+      <LastGenOutput>Model10.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model13.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model13.edmx</DependentUpon>
+      <LastGenOutput>Model13.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model13.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model13.edmx</DependentUpon>
+      <LastGenOutput>Model13.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model15.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model15.edmx</DependentUpon>
+      <LastGenOutput>Model15.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model15.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model15.edmx</DependentUpon>
+      <LastGenOutput>Model15.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model20.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model20.edmx</DependentUpon>
+      <LastGenOutput>Model20.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model20.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model20.edmx</DependentUpon>
+      <LastGenOutput>Model20.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model8.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model8.edmx</DependentUpon>
+      <LastGenOutput>Model8.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model8.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model8.edmx</DependentUpon>
+      <LastGenOutput>Model8.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model9.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model9.edmx</DependentUpon>
+      <LastGenOutput>Model9.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model9.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model9.edmx</DependentUpon>
+      <LastGenOutput>Model9.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model15.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model15.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model15.edmx.diagram">
+      <DependentUpon>Model15.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model8.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model8.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model8.edmx.diagram">
+      <DependentUpon>Model8.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model9.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model9.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model9.edmx.diagram">
+      <DependentUpon>Model9.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model10.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model10.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model10.edmx.diagram">
+      <DependentUpon>Model10.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model13.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model13.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model13.edmx.diagram">
+      <DependentUpon>Model13.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model20.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model20.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model20.edmx.diagram">
+      <DependentUpon>Model20.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\GymModel1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GymModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GymModel1.edmx.diagram">
+      <DependentUpon>GymModel1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Shared\_Layout3.cshtml" />
+    <Content Include="Views\Home\Chart.cshtml" />
+    <Content Include="Views\Home\trainee_details.cshtml" />
+    <Content Include="Views\Home\Welcome.cshtml" />
+    <Content Include="Views\Home\Welcome1.cshtml" />
+    <Content Include="Views\Home\trainee_size.cshtml" />
+    <Content Include="Views\Home\Traineelog.cshtml" />
+    <Content Include="Views\Home\Traineelog1.cshtml" />
+    <Content Include="Views\Home\Trainer.cshtml" />
+    <Content Include="Views\Home\Trainee.cshtml" />
+    <Content Include="Views\Home\register.cshtml" />
+    <Content Include="Views\Home\Equipments.cshtml" />
+    <Content Include="Views\Home\Register1.cshtml" />
+    <Content Include="Views\Home\sTrainer.cshtml" />
+    <Content Include="Views\Home\Chart1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Gym_Equipment_type_1Controller.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin1.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\chart.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\equipment.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GymModel1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GymModel1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GymModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GymModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GymModel1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gym_Branch.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gym_Branch_1.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gym_Equipment_type.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gym_Equipment_type_1.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Membership.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Membership_History.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model10.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model10.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model10.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model10.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model10.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model13.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model13.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model13.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model13.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model13.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model15.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model15.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model15.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model15.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model15.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model20.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model20.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model20.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model20.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model20.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model20.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model8.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model8.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model8.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model8.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model8.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model9.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model9.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model9.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model9.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\physcial_details.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\physcial_info.cs">
+      <DependentUpon>Model20.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\physical_info.cs">
+      <DependentUpon>Model20.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\student_trainer.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Timetable.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trainee.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trainee_details.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\trainer.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\type_of_equipment.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\type_of_equipment1.cs">
+      <DependentUpon>GymModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\welcomevm.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\traineelog.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Select_Timetable.cshtml" />
+    <Content Include="Views\Home\Select_Membership.cshtml" />
+    <Content Include="Views\Home\Trainee_Membership.cshtml" />
+    <Content Include="Views\Home\Trainee_Branch.cshtml" />
+    <Content Include="Views\Home\Trainee_Equipment.cshtml" />
+    <Content Include="Views\Home\Trainerlog.cshtml" />
+    <Content Include="Views\Home\Trainee_Record_Trainer.cshtml" />
+    <Content Include="Views\Home\Trainer_Proifle.cshtml" />
+    <Content Include="Views\Shared\_Layout4.cshtml" />
+    <Content Include="Views\Home\Welcome2.cshtml" />
+    <Content Include="Views\Shared\_Layout_Basic.cshtml" />
+    <Content Include="Views\Home\BasicUser.cshtml" />
+    <Content Include="Views\Home\Profile.cshtml" />
+    <Content Include="Views\Home\Pro.cshtml" />
+    <Content Include="Views\Home\Premium.cshtml" />
+    <Content Include="Views\Home\type_of_equipment.cshtml" />
+    <Content Include="Views\Gym_Branch\Create.cshtml" />
+    <Content Include="Views\Gym_Branch\Delete.cshtml" />
+    <Content Include="Views\Gym_Branch\Details.cshtml" />
+    <Content Include="Views\Gym_Branch\Edit.cshtml" />
+    <Content Include="Views\Gym_Branch\Index.cshtml" />
+    <Content Include="Views\Gym_Branch_1\Create.cshtml" />
+    <Content Include="Views\Gym_Branch_1\Delete.cshtml" />
+    <Content Include="Views\Gym_Branch_1\Details.cshtml" />
+    <Content Include="Views\Gym_Branch_1\Edit.cshtml" />
+    <Content Include="Views\Gym_Branch_1\Index.cshtml" />
+    <Content Include="Views\Home\Gym_Branch_Index.cshtml" />
+    <Content Include="Views\Home\Gym_Branch_Create.cshtml" />
+    <Content Include="Views\Home\Gym_Branch_Edit.cshtml" />
+    <Content Include="Views\Home\Gym_Branch_Delete.cshtml" />
+    <Content Include="Views\Gym_Equipment_type_1\Create.cshtml" />
+    <Content Include="Views\Gym_Equipment_type_1\Delete.cshtml" />
+    <Content Include="Views\Gym_Equipment_type_1\Details.cshtml" />
+    <Content Include="Views\Gym_Equipment_type_1\Edit.cshtml" />
+    <Content Include="Views\Gym_Equipment_type_1\Index.cshtml" />
+    <Content Include="Views\Home\Gym_Equipment_typeIndex.cshtml" />
+    <Content Include="Views\Home\Gym_Equipment_typeCreate.cshtml" />
+    <Content Include="Views\Home\Gym_Equipment_typeEdit.cshtml" />
+    <Content Include="Views\Home\Gym_Equipment_typeDelete.cshtml" />
+    <Content Include="Views\Home\Pro_Trainer.cshtml" />
+    <Content Include="Views\Home\Pro_Profile.cshtml" />
+    <Content Include="Views\Home\Premium_Profile.cshtml" />
+    <Content Include="Views\Home\Premium_Trainer.cshtml" />
+    <Content Include="Views\Home\Premium_Chart.cshtml" />
+    <Content Include="Views\Home\Basic_Profile.cshtml" />
+    <Content Include="Views\Home\trainer_Edit.cshtml" />
+    <Content Include="Views\Home\trainer_Details.cshtml" />
+    <Content Include="Views\Home\trainee_Edit.cshtml" />
+    <Content Include="Views\Home\Equipment_Edit.cshtml" />
+    <Content Include="Views\Home\Chart_Edit.cshtml" />
+    <Content Include="Views\Home\trainee_details1.cshtml" />
+    <Content Include="Views\Home\trainee_details2.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53875</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44305/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

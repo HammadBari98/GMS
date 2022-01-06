@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Gym_Management.Models.Gym_Branch_1>
+@*@model Gym_Management.Models.Gym_Branch_1*@
+
+@{
+    ViewBag.Title = "Gym_Branch_Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@*<h2>Gym_Branch_Index</h2>*@
+<style>
+    td, th, button {
+        font-size: 1.5rem
+    }
+</style>
+<div class="row">
+
+    <div class="col-12 col-md-2">
+        <div style=" background-color: #1f5f6f; height: 100vh ">
+            <ul style="margin-top:0px;  text-decoration:none; list-style-type:none;text-align:left; padding:0px">
+                <br />
+                <li style="font-size:20px;color:white; margin:10px" class="active">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    @Html.ActionLink("DASHBOARD", "Welcome", "Home")
+                </li>
+
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-life-ring" aria-hidden="true"></i>
+                    @Html.ActionLink("TRAINER", "Trainer", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    @Html.ActionLink("TRAINEE", "TRAINEE", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                    @Html.ActionLink("EQUIPMENTS", "EQUIPMENTS", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    @Html.ActionLink("CHART", "CHART", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                    @Html.ActionLink("BRANCH", "Gym_Branch_Index", new { @class = "list-group-item" })
+                </li>
+
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    @Html.ActionLink("LOGOUT", "index", new { @class = "list-group-item" })
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="container-fluid" style="margin-top: 30px">
+            <h2 style="color:white;">Branch Records</h2>
+            <table class="table table-responsive" style="color: black; background: rgba(256, 256, 256, 0.5); border: 1px solid white;  ">
+                <thead>
+                    <tr>
+                        <th style="text-align:center">Branch ID</th>
+                        <th style="text-align:center">Branch Name</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="text-align:center">
+                                @Html.DisplayFor(modelItem => item.B_id)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.DisplayFor(modelItem => item.B_Name)
+                            </td>
+
+                            <td style="text-align:center">
+                                <a class="btn btn-primary btn-sm" href="@Url.Action("Gym_Branch_Create",new {id = item.B_id })">
+                                    Add New Branch
+                                </a>
+                            </td>
+
+                            <td style="text-align:center">
+                                @*@Html.ActionLink("Edit", "Gym_Branch_Edit", new { id = item.B_id }) |*@
+                                <a class="btn btn-primary btn-sm" href="@Url.Action("Gym_Branch_Edit",new {id = item.B_id })">
+                                    Edit Branch
+                                </a>
+
+                                @*  @Html.ActionLink("Delete", "Gym_Branch_Delete", new { id = item.B_id })*@
+
+                            </td>
+
+                            
+
+                        </tr>
+                    }
+
+            </table>
+        </div>
+    </div>
+</div>
+@*
+<div class="form-horizontal">
+    <hr />
+    <div class="form-horizontal" style="padding:20px;color: black; background: rgba(256, 256, 256, 0.7); width: 680px !important; margin-left: 50px; border: 1px solid white; margin-top: 30px ">
+        <h2 style="text-align:center">Add Gym Branch</h2>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.B_Name, "Branch_Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.B_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.B_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div style="margin-left:25px">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</div>
+*@

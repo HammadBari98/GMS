@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="00fb366c18934e5b9fec3f3bf018dc20" Name="Diagram1">
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.Admin1" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.chart" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.equipment" Width="1.5" PointX="5.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.physcial_details" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.physcial_info" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.physical_info" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.student_trainer" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.sysdiagram" Width="1.5" PointX="7.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.trainee" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.trainee_details" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.trainer" Width="1.5" PointX="3" PointY="21.375" IsExpanded="true" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__chart__t_id__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__equipment__eq_tr__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__physcial___train__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__physcial___train__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__physical___train__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__student_t__train__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__student_tr__t_id__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__trainee_d__train__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__trainer__trainee__151B244E" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.Timetable" Width="1.5" PointX="5.25" PointY="9.125" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__Timetable__tp_id__32AB8735" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__Timetable__train__31B762FC" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.Gym_Branch" Width="1.5" PointX="8" PointY="16" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.Gym_Branch_1" Width="1.5" PointX="5.75" PointY="29.375" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.Gym_Equipment_type" Width="1.5" PointX="8" PointY="7" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.Gym_Equipment_type_1" Width="1.5" PointX="5.75" PointY="6.375" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.Membership" Width="1.5" PointX="3.75" PointY="26.25" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.Membership_History" Width="1.5" PointX="6" PointY="13" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.type_of_equipment" Width="1.5" PointX="5.75" PointY="32.125" />
+        <EntityTypeShape EntityType="Gym_Management_SystemModel4.type_of_equipment1" Width="1.5" PointX="8" PointY="10.125" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__Gym_Branc__train__662B2B3B" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__Gym_Branch__B_id__671F4F74" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__physcial___GB_id__73852659" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__Gym_Equip__Et_id__634EBE90" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__Gym_Equip__train__625A9A57" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__physcial___GEt_i__74794A92" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__Membership__M_id__4E53A1AA" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__Membershi__train__4D5F7D71" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__physcial___Mh_id__503BEA1C" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__physcial___tt_id__339FAB6E" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__student_t__t_e_i__0D44F85C" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__type_of_e__train__0A688BB1" />
+        <AssociationConnector Association="Gym_Management_SystemModel4.FK__type_of_e__t_e_i__0B5CAFEA" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,59 @@
+﻿@model Gym_Management.Models.physcial_details
+
+@{
+    ViewBag.Title = "trainee_size";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <style>
+       
+    </style>
+    <row>
+        <div class="container" style="width:70%">
+            <br /><br /><br /><br />
+            <div class="form-horizontal" style="color: black; background: rgba(256, 256, 256, 0.7); padding: 10px; border: 1px solid white; margin-top: 55px">
+
+                <h2 style="text-align:center;color:black;">Please Enter Details!</h2>
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.T_Hieght, "Height (Inches)", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6" style="margin-left:40px">
+                        @Html.EditorFor(model => model.T_Hieght, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.T_Hieght, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.T_Weight, "Weight", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6" style="margin-left:40px">
+                        @Html.EditorFor(model => model.T_Weight, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.T_Weight, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.T_Age, "Age", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-6" style="margin-left:40px">
+                        @Html.EditorFor(model => model.T_Age, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.T_Age, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-primary" style="width:55%;margin-left:50px"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </row>
+       
+}

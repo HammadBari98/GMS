@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <title>@Page.Title</title>
+
+</head>
+<body><div class="navbar navbar-inverse navbar-fixed-top" style="height:65px!important;font-size:25px;font-family: 'Satisfy', cursive;background-color:black !important;">
+
+    <div class="container">
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" style="margin-top:17px;margin-left:550px!important;color:white;">
+                <li style="margin-left:-600px"> @Html.ActionLink("GYM & FITNESS", "Index", "Home")</li>
+                <li style="margin-left:00px">   @Html.ActionLink("Home", "Welcome1", new { @class = "list-group-item" })</li>
+                <li style="margin-left:00px"> @Html.ActionLink("Trainer", "sTrainer", new { @class = "list-group-item" })</li>
+                <li> @Html.ActionLink("Chart", "Chart1", new { @class = "list-group-item" })</li>
+                <li> @Html.ActionLink("About Us", "Contact", new { @class = "list-group-item" })</li>
+                <li>
+                    @Html.ActionLink("Logout", "Index", "Home")
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+          <br /><br /><br /><br />
+          @RenderBody()
+        
+</body>
+</html>

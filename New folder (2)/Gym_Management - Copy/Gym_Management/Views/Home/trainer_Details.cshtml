@@ -1,0 +1,96 @@
+﻿@model Gym_Management.Models.trainer
+
+@{
+    ViewBag.Title = "Trainer";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+
+        <div class="col-md-2">
+            <div style=" background-color: #1f5f6f; height:100vh ">
+                <ul style="margin-top:0px;  text-decoration:none; list-style-type:none;text-align:left; padding:0px">
+                    <br />
+                    <li style="font-size:20px;color:white; margin:10px" class="active">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        @Html.ActionLink("DASHBOARD", "Welcome", "Home")
+                    </li>
+
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-life-ring" aria-hidden="true"></i>
+                        @Html.ActionLink("TRAINER", "Trainer", new { @class = "list-group-item" })
+                    </li>
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        @Html.ActionLink("TRAINEE", "TRAINEE", new { @class = "list-group-item" })
+                    </li>
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                        @Html.ActionLink("EQUIPMENTS", "EQUIPMENTS", new { @class = "list-group-item" })
+                    </li>
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-cutlery" aria-hidden="true"></i>
+                        @Html.ActionLink("CHART", "CHART", new { @class = "list-group-item" })
+                    </li>
+
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-building-o" aria-hidden="true"></i>
+                        @Html.ActionLink("BRANCH", "Gym_Branch_Index", new { @class = "list-group-item" })
+                    </li>
+
+                    <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        @Html.ActionLink("LOGOUT", "index", new { @class = "list-group-item" })
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="container">
+                <div class="col-md-6">
+                    <div class="container-fluid" style=" margin-top: 20px ">
+                        <h2 style="color:white;">Trainer Records:  </h2>
+                        <table class="table table-responsive" style="color: black; background: rgba(256, 256, 256, 0.8);  border: 1px solid white; ">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Trainer Name</th>
+                                    <th>Weight</th>
+                                    <th>Gender</th>
+                                    <th>Password</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewData["list"] as List<Gym_Management.Models.trainer>)
+                                {
+                                    <tr>
+                                        <td style="text-align:center">@item.trainer_id</td>
+                                        <td style="text-align:center">@item.trainer_name</td>
+                                        <td style="text-align:center">@item.for_weight</td>
+                                        <td style="text-align:center">@item.Gender</td>
+                                        <td style="text-align:center">@item.trainer_password</td>
+
+                                        <td style="text-align:center">
+
+
+                                    </tr>
+                                }
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

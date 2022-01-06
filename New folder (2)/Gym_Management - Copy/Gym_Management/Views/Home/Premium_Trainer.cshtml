@@ -1,0 +1,68 @@
+﻿@model Gym_Management.Models.student_trainer
+
+@{
+    ViewBag.Title = "sTrainer";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-12 col-md-2">
+        <div style=" background-color: #1f5f6f; height: 100vh ">
+            <ul style="margin-top:0px;  text-decoration:none; list-style-type:none;text-align:center; padding:0px">
+                <br />
+                <li style="font-size:20px;color:white;">
+                    @Html.ActionLink("HOME", "Premium", "Home")
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("PROFILE", "Premium_profile", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("TRAINER", "premium_trainer", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("CHART", "Premium_Chart", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("LOGOUT", "index", new { @class = "list-group-item" })
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-12 col-md-10">
+        <h2 style="color:black;margin-left:50px;margin-top:20px">Trainer Details:</h2>
+
+        <table class="table" style="color: black; background: rgba(256, 256, 256, 0.7); width: 680px !important; margin-left: 50px; border: 1px solid white; margin-top: 30px ">
+            <tr>
+                <th>
+                    Trainer ID
+                </th>
+                <th>
+                    Equipment Type for exercise
+                </th>
+                <th>
+                    Trainer Name
+
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in ViewData["list"] as List<Gym_Management.Models.student_trainer>)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.trainer.trainer_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.type_of_equipment.Eq_type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.trainer.trainer_name)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+

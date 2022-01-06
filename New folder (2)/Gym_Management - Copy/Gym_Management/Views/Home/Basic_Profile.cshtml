@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Basic_Profile";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<div class="row">
+
+    <div class="col-12 col-md-2">
+        <div style=" background-color: #1f5f6f; height: 100vh ">
+            <ul style="margin-top:0px;  text-decoration:none; list-style-type:none;text-align:center; padding:0px">
+                <br />
+                <li style="font-size:20px;color:white;">
+                    @Html.ActionLink("HOME", "BasicUser", "Home")
+                </li>
+
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("PROFILE", "basic_profile", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("LOGOUT", "index", new { @class = "list-group-item" })
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-5">
+</div>
+</div>

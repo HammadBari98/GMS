@@ -1,0 +1,37 @@
+﻿@model Gym_Management.Models.chart
+
+@{
+    ViewBag.Title = "Chart1";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+<br />
+
+<style>
+    body {
+        background-image: url('../../Content/image/HOME_BG.jpg');
+        background-size: cover;
+    }
+</style>
+<h2 style="color:white;margin-left:50px">Your Dieting Chart!</h2>
+<br />
+    <table class="table table-responsive"  style="color:white;background-color:black;width:500px!important;margin-left:50px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Chart Name</th>
+                <th>Chart Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewData["list"] as List<Gym_Management.Models.chart>)
+            {
+                <tr>
+                    <td>@item.c_id</td>
+                    <td>@item.chart_name</td>
+                    <td>@item.chart_description</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+

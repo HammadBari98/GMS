@@ -1,0 +1,74 @@
+﻿@model Gym_Management.Models.Membership
+
+@{
+    ViewBag.Title = "Register1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <style>
+        body {
+            background-image: url('../../Content/image/banner.jpg');
+            background-size: cover;
+        }
+    </style>
+    <br />
+    <div>
+
+       
+        <div class="form-group" style="padding:20px;color: black; background: rgba(256, 256, 256, 0.7); width: 680px !important; margin-left: 50px; border: 1px solid white; margin-top: 30px ">
+            <h2 style="color:black;">Select Membership by Membership ID</h2>
+            @Html.LabelFor(model => model.M_id, "MembershipID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.M_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.M_id, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group" style="margin-left:20px;margin-top:10px;">
+                <div>
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+
+
+       
+    </div>
+}
+<div style="padding:20px;color: black; background: rgba(256, 256, 256, 0.7); width: 680px !important; margin-left: 50px; border: 1px solid white; margin-top: 30px ">
+    <h2 style="color:black;">Available Memberships: </h2><hr />
+    <table class="table">
+        <tr>
+            <th style="text-align:center">
+                Membership ID
+            </th>
+            <th style="text-align:center">
+                Membership Package
+            </th>
+            <th style="text-align:center">
+                Membership Fee
+            </th>
+
+
+        </tr>
+
+        @foreach (var item in ViewData["list"] as List<Gym_Management.Models.Membership>)
+        {
+            <tr>
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.M_id)
+                </td>
+
+                <td style="text-align:center">
+                    @Html.DisplayFor(modelItem => item.M_Package)
+                </td>
+                <td style="text-align: center">
+                    @Html.DisplayFor(modelItem => item.M_Fee)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>

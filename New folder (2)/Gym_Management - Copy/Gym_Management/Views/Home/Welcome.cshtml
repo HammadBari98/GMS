@@ -1,0 +1,223 @@
+﻿@using Gym_Management.Models
+@model welcomevm
+
+@{
+    ViewBag.Title = "Trainer";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+}
+<style>
+    td,th,button{
+        font-size:1.5rem
+    }
+    
+</style>
+
+<div class="row">
+
+    <div class="col-12 col-md-2">
+        <div style=" background-color: #1f5f6f; height: 100vh ">
+            <ul style="margin-top:0px;  text-decoration:none; list-style-type:none;text-align:left; padding:0px">
+                <br />
+                <li style="font-size:20px;color:white; margin:10px" class="active">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    @Html.ActionLink("DASHBOARD", "Welcome", "Home")
+                </li>
+
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-life-ring" aria-hidden="true"></i>
+                    @Html.ActionLink("TRAINER", "Trainer", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    @Html.ActionLink("TRAINEE", "TRAINEE", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+                    @Html.ActionLink("EQUIPMENTS", "EQUIPMENTS", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    @Html.ActionLink("CHART", "CHART", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                    @Html.ActionLink("BRANCH", "Gym_Branch_Index", new { @class = "list-group-item" })
+                </li>
+
+                <li style="font-size: 20px; color: white; margin-top: 10px; margin: 10px">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    @Html.ActionLink("LOGOUT", "index", new { @class = "list-group-item" })
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-12 col-md-10">
+        <div class="row" style="margin-top:20px">
+            <div class="col-12 col-md-5">
+
+                <table class="table table-responsive" style="color: black; background: rgba(256, 256, 256, 0.7);  border: 1px solid white; ">
+                    <thead>
+                        <h2 style="color: white">Equipment Records</h2>
+                    <thead>
+                        <tr>
+                            <th>Equipment ID</th>
+                            <th>Equipment Name</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var equipment in Model.equipment)
+                        {
+                            <tr>
+                                <td>@equipment.eq_id</td>
+                                <td>@equipment.eq_name</td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                    <td>
+                        <button class="btn btn-primary">
+                            @Html.ActionLink("View All", "Equipments")
+                        </button>
+                    </td>
+
+                </table>
+
+            </div>
+            <div class="col-12 col-md-5">
+
+
+                <table class="table table-responsive" style="color: black; background: rgba(256, 256, 256, 0.7);  border: 1px solid white; ">
+                    <thead>
+                        <h2 style="color:white">Trainee Records</h2>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Trainee Name</th>
+                            <th>Trainee Contact</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var trainees in Model.trainees)
+                        {
+                            <tr>
+                                <td>@trainees.trainee_id</td>
+                                <td>@trainees.trainee_name</td>
+                                <td>@trainees.trainee_contact</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <td>
+                        <button class="btn btn-primary">
+                            @Html.ActionLink("View All", "trainee")
+                        </button>
+                    </td>
+
+                </table>
+
+            </div>
+
+            
+
+
+        </div> @*Row End*@
+    <div class="row" style="margin-top:-30px">
+
+        <div class="col-12 col-md-5">
+            <table class="table table-responsive" style="color: black; background: rgba(256, 256, 256, 0.7);  border: 1px solid white; ">
+                <thead>
+                    <h2 style="color: white; margin-top: 40px;">Chart Records</h2>
+                <thead>
+                    <tr>
+                        <th>Chart ID</th>
+                        <th>Chart Name</th>
+                        <th>Chart Discription</th>
+                        <th>Chart For Weight</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    @foreach (var Chart in Model.charts)
+                    {
+
+                        <tr>
+                            <td>@Chart.c_id</td>
+                            <td>@Chart.chart_name</td>
+                            <td>@Chart.chart_description</td>
+                            <td>@Chart.chart_weight</td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+                <td>
+                    <button class="btn btn-primary">
+                        @Html.ActionLink("View All", "chart")
+                    </button>
+                </td>
+            </table>
+
+
+        </div>
+        <div class="col-12 col-md-5">
+            <table class="table table-responsive" style="color: black; background: rgba(256, 256, 256, 0.7);  border: 1px solid white; ">
+                <thead>
+                    <h2 style="color: white; margin-top: 40px;">Trainer Records</h2>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Trainer Name</th>
+                        <th>Trainer Salary</th>
+                        <th>Trainer Speciality</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    @foreach (var trainers in Model.trainers)
+                    {
+
+                        <tr>
+                            <td>@trainers.trainer_id</td>
+                            <td>@trainers.trainer_name</td>
+                            <td>@trainers.trainer_salary</td>
+                            <td>@trainers.trainer_speciality</td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+                <td>
+                    <button class="btn btn-primary">
+                        @Html.ActionLink("View All", "trainer")
+                    </button>
+                </td>
+            </table>
+
+
+        </div>
+    </div>
+    
+    </div>
+        
+</div>
+
+        
+       

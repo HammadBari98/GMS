@@ -1,0 +1,27 @@
+﻿@model Gym_Management.Models.Gym_Branch_1
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Gym_Branch_1</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.B_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.B_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.B_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

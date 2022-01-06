@@ -1,0 +1,85 @@
+﻿@using Gym_Management.Models
+@model welcomevm
+
+@{
+    ViewBag.Title = "Trainer";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+}
+
+<div class="row">
+    <div class="col-12 col-md-2">
+        <div style=" background-color: #1f5f6f; height: 100vh ">
+            <ul style="margin-top:0px;  text-decoration:none; list-style-type:none;text-align:center; padding:0px">
+                <br />
+                <li style="font-size:20px;color:white;">
+                    @Html.ActionLink("HOME", "Premium", "Home")
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("PROFILE", "profile", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("TRAINER", "strainer", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("CHART", "Chart1", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("LOGOUT", "index", new { @class = "list-group-item" })
+                </li>
+            </ul>
+        </div>
+    </div>
+   
+
+        <div class="col-12 col-md-6">
+            <div class="container-fluid" style="margin-top: 30px">
+                <h2 style="color:white;">My Profile</h2>
+                <table class="table table-responsive" style="color: black; background: rgba(256, 256, 256, 0.5); border: 1px solid white;  ">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">ID</th>
+                            <th style="text-align:center">Trainee Name</th>
+                            <th style="text-align:center">Contact</th>
+
+                            <th style="text-align:center">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewData["list"] as List<Gym_Management.Models.trainee>)
+                        {
+                            <tr>
+                                <td style="text-align:center">@item.trainee_id</td>
+                                <td style="text-align:center">@item.trainee_name</td>
+
+                                <td style="text-align:center">@item.trainee_contact</td>
+                                <td style="text-align:center">
+                                    <a class="btn btn-primary btn-sm" href="@Url.Action("trainee_details1",new {id=item.trainee_id })">
+                                        View More details
+                                    </a>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

@@ -1,0 +1,35 @@
+﻿@model Gym_Management.Models.Gym_Branch
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Gym_Branch</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.trainee.trainee_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trainee.trainee_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gym_Branch_1.B_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gym_Branch_1.B_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GB_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

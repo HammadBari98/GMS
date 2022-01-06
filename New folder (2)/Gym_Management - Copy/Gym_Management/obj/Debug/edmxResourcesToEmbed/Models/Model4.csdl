@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Gym_Management_SystemModel6" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin1">
+    <Key>
+      <PropertyRef Name="a_id" />
+    </Key>
+    <Property Name="a_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="a_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="a_password" Type="Int32" />
+  </EntityType>
+  <EntityType Name="chart">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="chart_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="chart_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="chart_weight" Type="Int32" />
+    <Property Name="t_id" Type="Int32" />
+    <NavigationProperty Name="trainee" Relationship="Self.FK__chart__t_id__2D27B809" FromRole="chart" ToRole="trainee" />
+  </EntityType>
+  <EntityType Name="equipment">
+    <Key>
+      <PropertyRef Name="eq_id" />
+    </Key>
+    <Property Name="eq_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="eq_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="eq_tra_id" Type="Int32" />
+    <NavigationProperty Name="trainer" Relationship="Self.FK__equipment__eq_tr__276EDEB3" FromRole="equipments" ToRole="trainer" />
+  </EntityType>
+  <EntityType Name="Gym_Branch">
+    <Key>
+      <PropertyRef Name="B_id" />
+    </Key>
+    <Property Name="B_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="B_Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="trainee_id" Type="Int32" />
+    <NavigationProperty Name="trainee" Relationship="Self.FK__Gym_Branc__train__41EDCAC5" FromRole="Gym_Branch" ToRole="trainee" />
+  </EntityType>
+  <EntityType Name="Gym_Equipment_type">
+    <Key>
+      <PropertyRef Name="Et_id" />
+    </Key>
+    <Property Name="Et_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Eq_type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="trainee_id" Type="Int32" />
+    <NavigationProperty Name="trainee" Relationship="Self.FK__Gym_Equip__train__44CA3770" FromRole="Gym_Equipment_type" ToRole="trainee" />
+  </EntityType>
+  <EntityType Name="Membership">
+    <Key>
+      <PropertyRef Name="M_id" />
+    </Key>
+    <Property Name="M_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="M_Package" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="M_Fee" Type="Int32" />
+    <NavigationProperty Name="Membership_History" Relationship="Self.FK__Membership__M_id__4A8310C6" FromRole="Membership" ToRole="Membership_History" />
+  </EntityType>
+  <EntityType Name="Membership_History">
+    <Key>
+      <PropertyRef Name="Mh_id" />
+    </Key>
+    <Property Name="Mh_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mh_Package" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="trainee_id" Type="Int32" />
+    <Property Name="M_id" Type="Int32" />
+    <NavigationProperty Name="Membership" Relationship="Self.FK__Membership__M_id__4A8310C6" FromRole="Membership_History" ToRole="Membership" />
+    <NavigationProperty Name="trainee" Relationship="Self.FK__Membershi__train__498EEC8D" FromRole="Membership_History" ToRole="trainee" />
+  </EntityType>
+  <EntityType Name="physcial_details">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="T_Hieght" Type="Double" />
+    <Property Name="T_Weight" Type="Double" />
+    <Property Name="T_Age" Type="Int32" />
+    <Property Name="traine_id" Type="Int32" Nullable="false" />
+    <Property Name="tt_id" Type="Int32" />
+    <NavigationProperty Name="trainee" Relationship="Self.FK__physcial___train__06CD04F7" FromRole="physcial_details" ToRole="trainee" />
+    <NavigationProperty Name="Timetable" Relationship="Self.FK__physcial___tt_id__339FAB6E" FromRole="physcial_details" ToRole="Timetable" />
+  </EntityType>
+  <EntityType Name="student_trainer">
+    <Key>
+      <PropertyRef Name="s_tr_id" />
+    </Key>
+    <Property Name="s_tr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="t_id" Type="Int32" />
+    <Property Name="trainer_id" Type="Int32" />
+    <NavigationProperty Name="trainer" Relationship="Self.FK__student_t__train__33D4B598" FromRole="student_trainer" ToRole="trainer" />
+    <NavigationProperty Name="trainee" Relationship="Self.FK__student_tr__t_id__32E0915F" FromRole="student_trainer" ToRole="trainee" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Timetable">
+    <Key>
+      <PropertyRef Name="tt_id" />
+    </Key>
+    <Property Name="tt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tt_Slot" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="traine_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="physcial_details" Relationship="Self.FK__physcial___tt_id__339FAB6E" FromRole="Timetable" ToRole="physcial_details" />
+    <NavigationProperty Name="trainee" Relationship="Self.FK__Timetable__train__31B762FC" FromRole="Timetable" ToRole="trainee" />
+  </EntityType>
+  <EntityType Name="trainee">
+    <Key>
+      <PropertyRef Name="trainee_id" />
+    </Key>
+    <Property Name="trainee_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trainee_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="trainee_contact" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="trainee_password" Type="Int32" />
+    <NavigationProperty Name="charts" Relationship="Self.FK__chart__t_id__2D27B809" FromRole="trainee" ToRole="chart" />
+    <NavigationProperty Name="Gym_Branch" Relationship="Self.FK__Gym_Branc__train__41EDCAC5" FromRole="trainee" ToRole="Gym_Branch" />
+    <NavigationProperty Name="Gym_Equipment_type" Relationship="Self.FK__Gym_Equip__train__44CA3770" FromRole="trainee" ToRole="Gym_Equipment_type" />
+    <NavigationProperty Name="Membership_History" Relationship="Self.FK__Membershi__train__498EEC8D" FromRole="trainee" ToRole="Membership_History" />
+    <NavigationProperty Name="physcial_details" Relationship="Self.FK__physcial___train__06CD04F7" FromRole="trainee" ToRole="physcial_details" />
+    <NavigationProperty Name="student_trainer" Relationship="Self.FK__student_tr__t_id__32E0915F" FromRole="trainee" ToRole="student_trainer" />
+    <NavigationProperty Name="Timetables" Relationship="Self.FK__Timetable__train__31B762FC" FromRole="trainee" ToRole="Timetable" />
+    <NavigationProperty Name="trainee_details" Relationship="Self.FK__trainee_d__train__300424B4" FromRole="trainee" ToRole="trainee_details" />
+    <NavigationProperty Name="trainers" Relationship="Self.FK__trainer__trainee__151B244E" FromRole="trainee" ToRole="trainer" />
+  </EntityType>
+  <EntityType Name="trainee_details">
+    <Key>
+      <PropertyRef Name="d_id" />
+    </Key>
+    <Property Name="d_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="waist" Type="Double" />
+    <Property Name="thighs" Type="Double" />
+    <Property Name="arms" Type="Double" />
+    <Property Name="chest" Type="Double" />
+    <Property Name="height" Type="Double" />
+    <Property Name="weight" Type="Int32" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="trainee_id" Type="Int32" />
+    <NavigationProperty Name="trainee" Relationship="Self.FK__trainee_d__train__300424B4" FromRole="trainee_details" ToRole="trainee" />
+  </EntityType>
+  <EntityType Name="trainer">
+    <Key>
+      <PropertyRef Name="trainer_id" />
+    </Key>
+    <Property Name="trainer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trainer_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="trainer_speciality" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="trainer_salary" Type="Int32" />
+    <Property Name="for_weight" Type="Int32" />
+    <Property Name="Gender" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="trainer_password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="trainee_id" Type="Int32" />
+    <NavigationProperty Name="equipments" Relationship="Self.FK__equipment__eq_tr__276EDEB3" FromRole="trainer" ToRole="equipments" />
+    <NavigationProperty Name="student_trainer" Relationship="Self.FK__student_t__train__33D4B598" FromRole="trainer" ToRole="student_trainer" />
+    <NavigationProperty Name="trainee" Relationship="Self.FK__trainer__trainee__151B244E" FromRole="trainer" ToRole="trainee" />
+  </EntityType>
+  <Association Name="FK__chart__t_id__2D27B809">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="0..1" />
+    <End Role="chart" Type="Self.chart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="chart">
+        <PropertyRef Name="t_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__equipment__eq_tr__276EDEB3">
+    <End Role="trainer" Type="Self.trainer" Multiplicity="0..1" />
+    <End Role="equipments" Type="Self.equipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainer">
+        <PropertyRef Name="trainer_id" />
+      </Principal>
+      <Dependent Role="equipments">
+        <PropertyRef Name="eq_tra_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Gym_Branc__train__41EDCAC5">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="0..1" />
+    <End Role="Gym_Branch" Type="Self.Gym_Branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="Gym_Branch">
+        <PropertyRef Name="trainee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Gym_Equip__train__44CA3770">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="0..1" />
+    <End Role="Gym_Equipment_type" Type="Self.Gym_Equipment_type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="Gym_Equipment_type">
+        <PropertyRef Name="trainee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Membership__M_id__4A8310C6">
+    <End Role="Membership" Type="Self.Membership" Multiplicity="0..1" />
+    <End Role="Membership_History" Type="Self.Membership_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membership">
+        <PropertyRef Name="M_id" />
+      </Principal>
+      <Dependent Role="Membership_History">
+        <PropertyRef Name="M_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Membershi__train__498EEC8D">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="0..1" />
+    <End Role="Membership_History" Type="Self.Membership_History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="Membership_History">
+        <PropertyRef Name="trainee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__physcial___train__06CD04F7">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="1" />
+    <End Role="physcial_details" Type="Self.physcial_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="physcial_details">
+        <PropertyRef Name="traine_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__physcial___tt_id__339FAB6E">
+    <End Role="Timetable" Type="Self.Timetable" Multiplicity="0..1" />
+    <End Role="physcial_details" Type="Self.physcial_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Timetable">
+        <PropertyRef Name="tt_id" />
+      </Principal>
+      <Dependent Role="physcial_details">
+        <PropertyRef Name="tt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student_t__train__33D4B598">
+    <End Role="trainer" Type="Self.trainer" Multiplicity="0..1" />
+    <End Role="student_trainer" Type="Self.student_trainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainer">
+        <PropertyRef Name="trainer_id" />
+      </Principal>
+      <Dependent Role="student_trainer">
+        <PropertyRef Name="trainer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__student_tr__t_id__32E0915F">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="0..1" />
+    <End Role="student_trainer" Type="Self.student_trainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="student_trainer">
+        <PropertyRef Name="t_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Timetable__train__31B762FC">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="1" />
+    <End Role="Timetable" Type="Self.Timetable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="Timetable">
+        <PropertyRef Name="traine_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__trainee_d__train__300424B4">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="0..1" />
+    <End Role="trainee_details" Type="Self.trainee_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="trainee_details">
+        <PropertyRef Name="trainee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__trainer__trainee__151B244E">
+    <End Role="trainee" Type="Self.trainee" Multiplicity="0..1" />
+    <End Role="trainer" Type="Self.trainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trainee">
+        <PropertyRef Name="trainee_id" />
+      </Principal>
+      <Dependent Role="trainer">
+        <PropertyRef Name="trainee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Gym_Management_SystemEntities6" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin1" EntityType="Self.Admin1" />
+    <EntitySet Name="charts" EntityType="Self.chart" />
+    <EntitySet Name="equipments" EntityType="Self.equipment" />
+    <EntitySet Name="Gym_Branch" EntityType="Self.Gym_Branch" />
+    <EntitySet Name="Gym_Equipment_type" EntityType="Self.Gym_Equipment_type" />
+    <EntitySet Name="Memberships" EntityType="Self.Membership" />
+    <EntitySet Name="Membership_History" EntityType="Self.Membership_History" />
+    <EntitySet Name="physcial_details" EntityType="Self.physcial_details" />
+    <EntitySet Name="student_trainer" EntityType="Self.student_trainer" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Timetables" EntityType="Self.Timetable" />
+    <EntitySet Name="trainees" EntityType="Self.trainee" />
+    <EntitySet Name="trainee_details" EntityType="Self.trainee_details" />
+    <EntitySet Name="trainers" EntityType="Self.trainer" />
+    <AssociationSet Name="FK__chart__t_id__2D27B809" Association="Self.FK__chart__t_id__2D27B809">
+      <End Role="trainee" EntitySet="trainees" />
+      <End Role="chart" EntitySet="charts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__equipment__eq_tr__276EDEB3" Association="Self.FK__equipment__eq_tr__276EDEB3">
+      <End Role="trainer" EntitySet="trainers" />
+      <End Role="equipments" EntitySet="equipments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Gym_Branc__train__41EDCAC5" Association="Self.FK__Gym_Branc__train__41EDCAC5">
+      <End Role="trainee" EntitySet="trainees" />
+      <End Role="Gym_Branch" EntitySet="Gym_Branch" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Gym_Equip__train__44CA3770" Association="Self.FK__Gym_Equip__train__44CA3770">
+      <End Role="trainee" EntitySet="trainees" />
+      <End Role="Gym_Equipment_type" EntitySet="Gym_Equipment_type" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Membership__M_id__4A8310C6" Association="Self.FK__Membership__M_id__4A8310C6">
+      <End Role="Membership" EntitySet="Memberships" />
+      <End Role="Membership_History" EntitySet="Membership_History" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Membershi__train__498EEC8D" Association="Self.FK__Membershi__train__498EEC8D">
+      <End Role="trainee" EntitySet="trainees" />
+      <End Role="Membership_History" EntitySet="Membership_History" />
+    </AssociationSet>
+    <AssociationSet Name="FK__physcial___train__06CD04F7" Association="Self.FK__physcial___train__06CD04F7">
+      <End Role="trainee" EntitySet="trainees" />
+      <End Role="physcial_details" EntitySet="physcial_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__physcial___tt_id__339FAB6E" Association="Self.FK__physcial___tt_id__339FAB6E">
+      <End Role="Timetable" EntitySet="Timetables" />
+      <End Role="physcial_details" EntitySet="physcial_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student_t__train__33D4B598" Association="Self.FK__student_t__train__33D4B598">
+      <End Role="trainer" EntitySet="trainers" />
+      <End Role="student_trainer" EntitySet="student_trainer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__student_tr__t_id__32E0915F" Association="Self.FK__student_tr__t_id__32E0915F">
+      <End Role="trainee" EntitySet="trainees" />
+      <End Role="student_trainer" EntitySet="student_trainer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Timetable__train__31B762FC" Association="Self.FK__Timetable__train__31B762FC">
+      <End Role="trainee" EntitySet="trainees" />
+      <End Role="Timetable" EntitySet="Timetables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__trainee_d__train__300424B4" Association="Self.FK__trainee_d__train__300424B4">
+      <End Role="trainee" EntitySet="trainees" />
+      <End Role="trainee_details" EntitySet="trainee_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__trainer__trainee__151B244E" Association="Self.FK__trainer__trainee__151B244E">
+      <End Role="trainee" EntitySet="trainees" />
+      <End Role="trainer" EntitySet="trainers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

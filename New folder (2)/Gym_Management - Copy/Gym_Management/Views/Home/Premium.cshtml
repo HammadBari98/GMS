@@ -1,0 +1,63 @@
+﻿@using Gym_Management.Models
+@model welcomevm
+
+@{
+    ViewBag.Title = "PRO USER";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+}
+
+
+<div class="row">
+
+    <div class="col-12 col-md-2">
+        <div style=" background-color: #1f5f6f; height: 100vh ">
+            <ul style="margin-top:0px;  text-decoration:none; list-style-type:none;text-align:center; padding:0px">
+                <br />
+                <li style="font-size:20px;color:white;">
+                    @Html.ActionLink("HOME", "Premium", "Home")
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("PROFILE", "Premium_profile", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("TRAINER", "premium_trainer", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("CHART", "Premium_Chart", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("LOGOUT", "index", new { @class = "list-group-item" })
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-5">
+
+        <div class="card" style="width:500px;height:600px;margin-top:10px">
+            <img class="card-img-top" src="../../Content/image/c1.jpg" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text" style="font-size:1.5rem">  Here at Gym and Fitness, we have a team of approximately forty awesome superstars and we owe our success to each and every one of them! Because we hire for culture first and foremost, we have some pretty awesome people working with us who hustle everyday to give you a positive customer experience. You can find them in areas such as sales, marketing and ecommerce, customer service, warehousing, finance, human resources and management. If you think you’re kind of a big deal and interested in joining our team, please send us an email with your resume and a little bit about yourself.</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-5">
+        <div class="card" style="width: 500px; height: 600px; margin-top: 10px">
+            <img class="card-img-top" src="../../Content/image/c2.jpg" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text" style="font-size:1.5rem"> Gym and Fitness was founded in 2002 as a family owned and operated business. The Gym and Fitness founders didn’t want it to be just another gym equipment retailer - they wanted to be the best in the industry and set their minds to doing so! Since its birth, Gym and Fitness has grown into one of Australia’s largest online fitness equipment retailers having helped over 50,000 customers live longer, happier and healthier lives.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>

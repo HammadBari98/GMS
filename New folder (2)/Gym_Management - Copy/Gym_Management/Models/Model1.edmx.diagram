@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e9efb455d95e43fd94bc360741cdfbf5" Name="Diagram1">
+        <EntityTypeShape EntityType="GymModel.Admin1" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymModel.chart" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymModel.equipment" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymModel.student_trainer" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymModel.trainee" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymModel.trainee_details" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymModel.traineelog" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymModel.trainer" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="GymModel.FK__chart__t_id__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="GymModel.FK__student_t__train__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="GymModel.FK__student_tr__t_id__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="GymModel.FK__trainee_d__train__71D1E811" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GymModel.sysdiagram" Width="1.5" PointX="8.375" PointY="0.75" />
+        <AssociationConnector Association="GymModel.FK__equipment__eq_tr__2739D489" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

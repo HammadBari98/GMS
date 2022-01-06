@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Gym_Management.Models.Gym_Equipment_type_1>
+
+@{
+    ViewBag.Title = "Gym_Equipment_typeIndex";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Gym_Equipment_typeIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Eq_type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eq_type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Et_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Et_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Et_id })
+        </td>
+    </tr>
+}
+
+</table>

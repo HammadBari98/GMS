@@ -1,0 +1,41 @@
+﻿@model Gym_Management.Models.Timetable
+@{
+    ViewBag.Title = "Select_Timetable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2></h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <style>
+        body {
+            background-image: url('../../Content/image/banner.jpg');
+            background-size: cover;
+        }
+    </style>
+    <br />
+    <div class="form-horizontal"  style="padding:20px;color: black; background: rgba(256, 256, 256, 0.7); width: 680px !important; margin-left: 50px; border: 1px solid white; margin-top: 30px ">
+
+
+        <div >
+            <h2 style="color:black">Select Timetable: </h2><hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group" style="margin-top:30px">
+                @Html.LabelFor(model => model.tt_Slot, "Morning/Evening", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.tt_Slot, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.tt_Slot, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div style="margin-left:10px">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}

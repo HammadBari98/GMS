@@ -1,0 +1,76 @@
+﻿@model Gym_Management.Models.type_of_equipment
+
+@{
+    ViewBag.Title = "Register1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <style>
+        body {
+            background-image: url('../../Content/image/banner.jpg');
+            background-size: cover;
+        }
+    </style>
+    <br />
+    <div>
+
+        <h2 style="color:black;">Select Equipment by Equipment ID</h2>
+        <div class="form-group" style="color: black; background: rgba(256, 256, 256, 0.7); width: 680px !important; margin-left: 50px; border: 1px solid white; margin-top: 30px ">
+            @Html.LabelFor(model => model.t_e_id, "Equipment ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.t_e_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.t_e_id, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group" style="padding:10px">
+                <center>
+                    <div>
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </center>
+            </div>
+        </div>
+
+
+
+    </div>
+}
+
+<br />
+<div style="color: black; background: rgba(256, 256, 256, 0.7); width: 680px !important; margin-left: 50px; border: 1px solid white; margin-top: 30px ">
+    <h2 style="color:black;">Available Equipments: </h2><hr />
+    <table class="table">
+        <tr>
+            <th style="text-align:center">
+                Equipment ID
+            </th>
+            <th style="text-align:center">
+                Equipment Name
+            </th>
+            <th style="text-align:center">
+                Equipment Discription
+            </th>
+
+
+        </tr>
+
+        @foreach (var item in ViewData["list"] as List<Gym_Management.Models.type_of_equipment>)
+        {
+         <tr>
+        <td style="text-align:center">
+            @Html.DisplayFor(modelItem => item.t_e_id)
+        </td>
+
+        <td style="text-align:center">
+            @Html.DisplayFor(modelItem => item.Eq_type)
+        </td>
+        <td style="text-align:center">
+        @Html.DisplayFor(modelItem => item.Eq_description)
+        </td>
+</tr>
+        }
+
+    </table>
+</div>

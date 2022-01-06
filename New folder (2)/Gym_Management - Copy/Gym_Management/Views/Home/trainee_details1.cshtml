@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Gym_Management.Models.physcial_details>
+
+@{
+    ViewBag.Title = "trainee_details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-12 col-md-2">
+        <div style=" background-color: #1f5f6f; height: 100vh ">
+            <ul style="margin-top:0px;  text-decoration:none; list-style-type:none;text-align:center; padding:0px">
+                <br />
+                <li style="font-size:20px;color:white;">
+                    @Html.ActionLink("HOME", "Welcome1", "Home")
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("PROFILE", "profile", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("TRAINER", "strainer", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("CHART", "Chart1", new { @class = "list-group-item" })
+                </li>
+                <li style="font-size:20px;color:white;margin-top:10px">
+                    @Html.ActionLink("LOGOUT", "index", new { @class = "list-group-item" })
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+
+        <div style="color: black; background: rgba(256, 256, 256, 0.3); width: 680px !important; margin-left: 50px; border: 1px solid white; margin-top: 30px ">
+            <h2 style="color:black;text-align:center">Trainee Details</h2>
+
+            <table class="table table-responsive" style="color: black; background: rgba(256, 256, 256, 0.3);  border: 1px solid white; ">
+                <tr>
+
+                    <th>
+                        Height
+                    </th>
+                    <th>
+                        Weight
+                    </th>
+                    <th>
+                        Age
+                    </th>
+                    <th>
+                        Time Slot
+                    </th>
+                    <th>
+                        Membership
+                    </th>
+                    <th>
+                        Branch
+                    </th>
+                    <th>
+                        Equipment
+                    </th>
+
+
+
+                    <th>Student Name</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in ViewData["list"] as List<Gym_Management.Models.physcial_details>)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.T_Hieght)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.T_Weight)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.T_Age)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Timetable.tt_Slot)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Membership_History.Membership.M_Package)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gym_Branch.Gym_Branch_1.B_Name)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.type_of_equipment1.type_of_equipment.Eq_type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.trainee.trainee_name)
+                        </td>
+
+                        @*<td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.d_id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.d_id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.d_id })
+                            </td>*@
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
